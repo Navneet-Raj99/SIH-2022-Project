@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import './Slider.css'
 import BtnSlider from './BtnSlider'
 // import dataSlider from './dataSlider'
-import auto1 from './auto1.png'
+// import auto1 from './auto1.png'
 
 export default function Slider() {
     const dataSlider = [
@@ -83,7 +83,7 @@ export default function Slider() {
                     className={slideIndex === index + 1 ? "slide active-anim" : "slide "}
                     >
                         <img 
-                        src={ `Imgs/Autokriti${index + 1}.jpeg`} 
+                        src={ `Imgs/deadheads${index + 1}.jpg`} 
                         />
                     
                     </div>
@@ -103,9 +103,10 @@ export default function Slider() {
                     ></div>
                 ))}
             </div>
-            <div id="autokriti_heading">
-                <img
-                src={auto1} id="auto_image"/>
+            <div id="autokriti_heading" style={{"backgroundColor":"lightwhite"}}>
+                {/* <img
+                src={auto1} id="auto_image"/> */}
+                <h1 >Deadheads</h1>
             </div>
         </div>
     )
