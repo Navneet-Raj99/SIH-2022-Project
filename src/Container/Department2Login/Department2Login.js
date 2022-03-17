@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
-import "./DirectorLogin.css";
+import "./Department2Login.css";
 import man_sitting from "../../Assets/LoginPageLogos/man_sitting.webp";
 import Footer from "../../Components/Footer/Footer";
 
 
-function DirectorLogin() {
+function Department2Login() {
   const [userid, setuserid] = useState();
   const [password, setpassword] = useState();
   const [loggedin, setloggedin] = useState(false);
@@ -64,7 +64,7 @@ function DirectorLogin() {
             <div id="loginmain">
               <div id="logincompo1">
                 {" "}
-                <h2 id="h2comp1">Login For Director</h2>{" "}
+                <h2 id="h2comp1">Login For Dept-2</h2>{" "}
               </div>
               <br />
               <div id="logincompo2">
@@ -107,4 +107,4 @@ function DirectorLogin() {
   }
 }
 
-export default DirectorLogin;
+export default Department2Login;

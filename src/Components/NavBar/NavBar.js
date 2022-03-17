@@ -20,12 +20,12 @@ function Navbar() {
                     </Link>
                 </li>
                 <li className="NavigationBar_Nav-nav-item">
-                    <Link to="/signup" className="NavigationBar_Nav-nav-link" onClick={() => setOpen(false)}>
-                       Sign UP
+                    <Link to="/directorsignin" className="NavigationBar_Nav-nav-link" onClick={() => setOpen(false)}>
+                       Director
                     </Link>
                 </li>
                 <li className="NavigationBar_Nav-nav-item">
-                    <Link to="/accelerons" className="NavigationBar_Nav-nav-link" onClick={() => setOpen(false)}>
+                    <Link to="/membersignin" className="NavigationBar_Nav-nav-link" onClick={() => setOpen(false)}>
                        Sign In
                     </Link>
                 </li>
