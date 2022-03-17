@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import "./FooterBlack.css";
+import "./Footer.css";
 // import Coming from '../../../Assets/Coming Soon/Coming.png'
 function Footer() {
   return (
@@ -17,24 +17,24 @@ function Footer() {
           id="black_explore_us_content"
           className="black_each_footer_content"
         >
-          <Link to="/accelerons">
+          <a href="/accelerons">
             <p className="black_things_to_explore">Team Accelerons </p>
-          </Link>
-          <Link to="/nitrox">
+          </a>
+          <a href="/nitrox">
             <p className="black_things_to_explore">Team Nitrox</p>
-          </Link>
-          <Link to="/autokriti">
+          </a>
+          <a href="/autokriti">
             <p className="black_things_to_explore">Autokriti</p>
-          </Link>
-          <Link to="/blogs">
+          </a>
+          <a href="/blogs">
             <p className="black_things_to_explore">Blogs</p>
-          </Link>
-          <Link to="/sponsors">
+          </a>
+          <a href="/sponsors">
             <p className="black_things_to_explore">Sponsors</p>
-          </Link>
-          <Link to="/contactus">
+          </a>
+          <a href="/contactus">
             <p className="black_things_to_explore">Contact Us</p>
-          </Link>
+          </a>
         </div>
       </div>
       <div id="black_footer_box2">
@@ -165,9 +165,9 @@ function Footer() {
             />
             <span id="black_email_text">
               {" "}
-              <Link to="/contactus">
+              <a href="/contactus">
                 Contact Us
-              </Link>
+              </a>
             </span>
           </p>
         </div>
@@ -187,7 +187,23 @@ function Footer() {
          >
          
           {/* <img id="coming_soon"src={Coming}/> */}
-    
+          {/* <input
+            id="black_getting_mail"
+            type="text"
+            placeholder="Enter your email..."
+          />
+          <button id="black_joinus"> Join</button>
+          <br />
+          <br />
+          <input
+            type="checkbox"
+            id="black_select"
+            name="select"
+            value="got_it"
+          />
+          <span id="black_checkbox_disclaimer">
+            Yes,I'd like to hear about updates on my mail
+          </span> */}
         </div>
       </div>
     </div>
