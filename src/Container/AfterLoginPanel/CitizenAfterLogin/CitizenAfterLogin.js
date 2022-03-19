@@ -32,7 +32,7 @@ function AfterMemberLogin() {
             color="button_membersignin_green"
             action="submitenquiry"
           /> */}
-          <h1>{variables.name.name}</h1>
+          <h1> Submit a New Enquiry {variables.name.name}</h1>
           <br/><br/>
           <Form1/>
 <br/>
