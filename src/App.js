@@ -7,6 +7,7 @@ import Department1Login from './Container/Department1Login/Department1Login'
 import Department2Login from './Container/Department2Login/Department2Login'
 import Department3Login from './Container/Department3Login/Department3Login'
 import Department4Login from './Container/Department4Login/Department4Login'
+import CitizenAfterLogin from './Container/AfterLoginPanel/CitizenAfterLogin/CitizenAfterLogin'
 import CitizenLogin from "./Container/CitizenLogin/CitizenLogin";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/department3signin" exact element={<Department3Login />} />
         <Route path="/department4signin" exact element={<Department4Login />} />
         <Route path="/citizensignin" exact element={<CitizenLogin/>} />
+        <Route path="/citizenafterlogin" exact element={<CitizenAfterLogin/>} />
       </Routes>
     </Router>
   );
