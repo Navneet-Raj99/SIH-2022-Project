@@ -34,7 +34,7 @@ function Form1() {
       ></textarea>
     </div>
     <div className="question">
-     How did you find out about this ambassador program? *</div>   
+    Select the Concern Department *</div>   
   <div className="field">
   <select id="s3">
         <option selected hidden value="">
@@ -44,28 +44,28 @@ function Form1() {
           name="submit blog"
           value="Instagram"
         >
-          Instagram
+          Department 1
         </option>
         <option
           name="sponsership"
           value="Facebook"
         >
-          Facebook
+          Department 2
         </option>
         <option name="brand_ambassador" value="LinkedIn">
-          LinkedIn
+        Department 3
         </option>
         <option name="website" value="D2C">
-          D2C
+        Department 4
         </option>
         <option name="other" value="Word of Mouth">
-          Word of Mouth
+        Department 5
         </option>
         <option name="other" value="Website">
-          Website
+        Department 6
         </option>
         <option name="other" value="Other">
-          Other
+        Department 7
         </option>
       </select>
     </div>

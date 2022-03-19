@@ -30,21 +30,19 @@ function CitizenQueryCard(props) {
                 setnumber(1);
             }
         }}>
-              Move On
+              Submit A Enquiry
           </button>
           </Link>
         
-          {/* <FcDepartment/> */}
+     
           </div>
          
-          {/* {(z==2)&&<h1>Navneet</h1>} */}
+    
         
           
     </div>
- <div>
- {(number==1)&&<h1>Navneet  Raj</h1>}
- {(number==2)&&<Form1/>}
- </div>
+   
+
  </>
 
  

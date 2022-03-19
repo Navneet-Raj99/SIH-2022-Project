@@ -23,7 +23,7 @@
     /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
     border-radius: 10px;
     /* min-height: 80vh; */
-    width: 45%;
+    width: 95%;
     display: flex;
     flex-direction: column;
     text-align:left;
@@ -34,7 +34,7 @@
     margin-bottom: 30px;
     padding-left: 30px;
     padding-right: 30px;
-     margin-left: 30px;
+     /* margin-left: 30px; */
     /* margin-right: 30px;  */
     background-color: #FFFFFF;
     align-self: center;
@@ -122,7 +122,7 @@ input,textarea{
 #amb-button{
     cursor: pointer;
     border-radius: 15px;
-    background: #E9910DFC;
+    background: #0dabe9fc;
     height: 40px;
     width: 100px;
     color: white;

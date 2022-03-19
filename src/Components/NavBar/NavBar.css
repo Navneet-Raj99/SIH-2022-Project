@@ -8,7 +8,7 @@
 .NavigationBar_Nav-navbar{
     height: 50px;
     width: 100%;
-    background: #000;
+    background: rgb(55, 3, 243);
     color: white;
     display: flex;
     justify-content: space-between;
