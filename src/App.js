@@ -10,8 +10,11 @@ import Department4Login from './Container/Department4Login/Department4Login'
 import CitizenAfterLogin from './Container/AfterLoginPanel/CitizenAfterLogin/CitizenAfterLogin'
 import CitizenLogin from "./Container/CitizenLogin/CitizenLogin";
 
+import MemberStates from "./Context/MemberContext/MemberStates";
+
 function App() {
   return (
+    <MemberStates>
     <Router>
       <Routes>
         <Route path="/" exact element={<Homepage />} />
@@ -25,6 +28,7 @@ function App() {
         <Route path="/citizenafterlogin" exact element={<CitizenAfterLogin/>} />
       </Routes>
     </Router>
+    </MemberStates>
   );
 }
 

@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useContext,useEffect } from "react";
 import Footer from "../../../Components/Footer/Footer";
 import Navbar from "../../../Components/Navbar/Navbar";
 import "./CitizenAfterLogin.css";
 import CitizenQueryCard from "./CitizenQueryCard";
 import Form1 from "./Form1";
+import MemberContext from "../../../Context/MemberContext/MemberContext";
 function AfterMemberLogin() {
+  let series={
+    name:"Nishant",
+    age:"19"
+  }
+
+  useEffect(() => {
+   variables.changename(series);
+  }, [])
+  
+  let variables =useContext(MemberContext);
+ 
   return (
     <>
       <Navbar />
+     
+      {/* {console.log(variables.name.name)} */}
+     
       <br /> <br /> <br /> <br /> <br />
       <div id="citizen_department_card_box">
         <div id="submitEnquiry">
@@ -17,7 +32,7 @@ function AfterMemberLogin() {
             color="button_membersignin_green"
             action="submitenquiry"
           /> */}
-          <h1>Submit a New Enquiry</h1>
+          <h1>{variables.name.name}</h1>
           <br/><br/>
           <Form1/>
 <br/>
