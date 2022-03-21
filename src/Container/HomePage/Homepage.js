@@ -1,6 +1,6 @@
 import React from 'react'
 import Footer from '../../Components/Footer/Footer'
-import Navbar from '../../Components/Navbar/Navbar'
+// import Navbar from '../../Components/Navbar/Navbar'
 // import DirectorLogin from '../DirectorLogin/DirectorLogin'
 import Slider from '../../Components/HomeCarousel/Slider'
 // import Form1 from '../AfterLoginPanel/CitizenAfterLogin/Form1'
@@ -8,7 +8,7 @@ import Slider from '../../Components/HomeCarousel/Slider'
 function Homepage() {
   return (
     <div>
-      <Navbar/>
+      {/* <Navbar/> */}
         {/* <DirectorLogin/> */}
      
         <Slider/>

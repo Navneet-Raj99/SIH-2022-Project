@@ -1,6 +1,6 @@
 import React, { useContext,useEffect } from "react";
 import Footer from "../../../Components/Footer/Footer";
-import Navbar from "../../../Components/Navbar/Navbar";
+// import Navbar from "../../../Components/Navbar/Navbar";
 import "./CitizenAfterLogin.css";
 import CitizenQueryCard from "./CitizenQueryCard";
 import Form1 from "./Form1";
@@ -19,7 +19,7 @@ function AfterMemberLogin() {
  
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
      
       {/* {console.log(variables.name.name)} */}
      

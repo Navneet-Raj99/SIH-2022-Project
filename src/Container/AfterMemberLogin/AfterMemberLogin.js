@@ -1,12 +1,12 @@
 import React from 'react'
 import Footer from '../../Components/Footer/Footer'
-import Navbar from '../../Components/Navbar/Navbar'
+// import Navbar from '../../Components/Navbar/Navbar'
 import './AfterMemberLogin.css'
 import DepartmentCard from './DepartmentCard'
 function AfterMemberLogin() {
   return (
       <>
-      <Navbar/>
+      {/* <Navbar/> */}
        <br/> <br/> <br/> <br/> <br/>
     <div id="department_card_box">
        

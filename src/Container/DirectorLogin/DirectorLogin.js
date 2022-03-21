@@ -28,6 +28,30 @@ function DirectorLogin() {
     // }
   }
 
+  async function login(){
+    console.log("Login Function Called");
+    const rawResponse = await fetch("http://192.168.137.123:5000/organisation/login", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({email: userid, password: password})
+    });
+
+    const content = await rawResponse.json();
+    const statusCode = rawResponse.status;
+
+
+    if(statusCode == 401){
+       alert("Wrong Credential");
+    }else{
+      var access_token = content["access_token"];
+      localStorage.setItem("AUTH_TOKEN_DIRECTOR", access_token);
+    }
+
+  }
+
   // const token=localStorage.getItem("token");
 
   // let loggedinsecond=true;
@@ -93,7 +117,7 @@ function DirectorLogin() {
               </div>
               <br />
               <div id="logincompo4">
-                <button id="loginbut" onClick={checkCredentials}>
+                <button id="loginbut" onClick={login}>
                   LOGIN
                 </button>
               </div>
