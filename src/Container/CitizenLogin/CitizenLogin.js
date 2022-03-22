@@ -9,41 +9,56 @@ function CitizenLogin() {
   const [userid, setuserid] = useState();
   const [password, setpassword] = useState();
   const [loggedin, setloggedin] = useState(false);
+  const [secondloggedin, setsecondloggedin] = useState(false);
 
   function checkCredentials(e) {
     console.log("hello");
-    // if(userid=== "saeoperator" && password === "wearesaenitkkr"){
-    //   localStorage.setItem("token","shivaji");
-    //    e.preventDefault();
-    //    setloggedin(true);
-    //   //  console.log(userid);
-    //   //  console.log(password);
-    //   //  console.log(loggedin);
-
-    // }
-    // else{
-    //   console.log(loggedin);
-    //   window.alert("Wrong Password or Username");
-
-    // }
   }
 
-  // const token=localStorage.getItem("token");
+  async function login(){
+    console.log("Login Function Called");
+    const rawResponse = await fetch("http://192.168.137.9:5000/citizen/login", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({email: userid, password: password})
+    });
 
-  // let loggedinsecond=true;
-  // if(token===null)
-  // {
-  //   loggedinsecond=false;
-  // }
+    const content = await rawResponse.json();
+    const statusCode = rawResponse.status;
 
-  // if(loggedinsecond===true)
-  // {
-  //   return <Navigate to="/admin/actions"/>
-  // }
-  // else if(loggedin===true)
-  // {
-  //   return <Navigate to="/admin/actions"/>
-  // }
+
+    if(statusCode == 401){
+       alert("Wrong Credential");
+    }else{
+      var access_token = content["access_token"];
+      localStorage.setItem("AUTH_TOKEN_CITIZEN", access_token);
+      setsecondloggedin(true);
+    }
+
+  }
+
+  const token=localStorage.getItem("AUTH_TOKEN_CITIZEN");
+
+  let loggedinsecond=true;
+  if(token===null)
+  {
+    loggedinsecond=false;
+  }
+
+  if(loggedinsecond===true)
+  {
+    return <Navigate to="/citizenafterlogin"/>
+  }
+  else if(loggedin===true)
+  {
+    return <Navigate to="/"/>
+    // educationMinister@gmail.com
+    // admin123
+  }
+
   {
     return (
       <>
@@ -93,7 +108,7 @@ function CitizenLogin() {
               </div>
               <br />
               <div id="logincompo4">
-                <button id="loginbut" onClick={checkCredentials}>
+                <button id="loginbut" onClick={login}>
                   LOGIN
                 </button>
               </div>

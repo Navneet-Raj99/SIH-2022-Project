@@ -1,0 +1,7 @@
+#member_department_card_box
+{
+    display: flex;
+    /* flex-direction: row; */
+    flex-wrap: wrap;
+    border:2px solid black;
+}

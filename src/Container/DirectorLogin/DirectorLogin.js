@@ -3,12 +3,13 @@ import { Navigate } from "react-router-dom";
 import "./DirectorLogin.css";
 import man_sitting from "../../Assets/LoginPageLogos/man_sitting.webp";
 import Footer from "../../Components/Footer/Footer";
-
+import Navbar from '../../Components/Navbar/Navbar'
 
 function DirectorLogin() {
   const [userid, setuserid] = useState();
   const [password, setpassword] = useState();
   const [loggedin, setloggedin] = useState(false);
+  const [secondloggedin, setsecondloggedin] = useState(false);
 
   function checkCredentials(e) {
     console.log("hello");
@@ -30,7 +31,7 @@ function DirectorLogin() {
 
   async function login(){
     console.log("Login Function Called");
-    const rawResponse = await fetch("http://192.168.137.123:5000/organisation/login", {
+    const rawResponse = await fetch("http://192.168.137.9:5000/organisation/login", {
       method: "POST",
       headers: {
         'Accept': 'application/json',
@@ -48,30 +49,33 @@ function DirectorLogin() {
     }else{
       var access_token = content["access_token"];
       localStorage.setItem("AUTH_TOKEN_DIRECTOR", access_token);
+      setsecondloggedin(true);
     }
 
   }
 
-  // const token=localStorage.getItem("token");
+  const token=localStorage.getItem("AUTH_TOKEN_DIRECTOR");
 
-  // let loggedinsecond=true;
-  // if(token===null)
-  // {
-  //   loggedinsecond=false;
-  // }
+  let loggedinsecond=true;
+  if(token===null)
+  {
+    loggedinsecond=false;
+  }
 
-  // if(loggedinsecond===true)
-  // {
-  //   return <Navigate to="/admin/actions"/>
-  // }
-  // else if(loggedin===true)
-  // {
-  //   return <Navigate to="/admin/actions"/>
-  // }
+  if(loggedinsecond===true)
+  {
+    return <Navigate to="/directorpanel"/>
+  }
+  else if(loggedin===true)
+  {
+    return <Navigate to="/"/>
+    // educationMinister@gmail.com
+    // admin123
+  }
   {
     return (
       <>
-        {/* <Navbar/> */}
+        <Navbar/>
         {/* <div id="department_card_box">
         <DepartmentCard/>
         <DepartmentCard/>
@@ -79,7 +83,7 @@ function DirectorLogin() {
         <DepartmentCard/>
         </div> */}
 
-        <div id="logincontainer">
+        <div id="logincontainer">+
           <div id="loginbox">
             <div id="loginlogo">
               {" "}

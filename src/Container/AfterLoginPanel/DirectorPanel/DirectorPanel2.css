@@ -1,0 +1,21 @@
+.directorBigbox
+{
+    /* border: 2px solid black; */
+    display: flex;
+    /* height: 300px; */
+    margin-left: 80px;
+    margin-right: 80px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 8%;
+}
+.department_heading
+{
+    margin-left: 80px;
+    margin-right: 80px;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-left: 8%;
+}

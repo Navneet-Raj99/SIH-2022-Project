@@ -1,11 +1,48 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import './Form1.css'
+import axios from 'axios';
 function Form1() {
+  const [title, settitle] = useState();
+  const [description, setdescription] = useState();
+  const[departmentarray,setdepartmentarray]=useState([]);
+  const [loggedin, setloggedin] = useState(false);
+  const [secondloggedin, setsecondloggedin] = useState(false);
+  useEffect(() => {
+   calling();
+  }, [])
+  
+  async function calling()
+  {
+    
+    console.log("Submitcalling Function  Called");
+    axios
+    .get("http://192.168.137.9:5000/departments")
+    .then(function (response) {
+      // console.log(response.data);
+      setdepartmentarray(response.data.data);
+    });
+    
+
+  }
+  async function submitform(){
+
+    console.log("SubmitFOrm Function  Called");
+    const rawResponse = await fetch("http://192.168.137.9:5000/citizen/submitQuery", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        "Authorization": "Bearer " + localStorage.getItem("AUTH_TOKEN_CITIZEN"),
+      },
+      body: JSON.stringify({title: title, description: description,department_id:"623485214552j55khh5"})
+    });
+    const content = await rawResponse.json();
+    const statusCode = rawResponse.status;
+  }
   return (
     <div className="Form-container">
     <div className="question">
-      What are your top 3 qualities related to being a Campus Ambassador?
-      *
+     Title OF Enquiry
     </div>
     <div className="field">
       {" "}
@@ -16,11 +53,14 @@ function Form1() {
         placeholder="Type your answer here"
         // cols="65"
         rows="3"
+        onChange={(e)=>
+        {
+          settitle(e.target.value);
+        }}
       ></textarea>
     </div>
     <div className="question">
-      What two channels (eg. Social Media) do you think are the most effective for engaging
-      with our target audience (18-22 Yrs) *{" "}
+      Description Of Enquiry
     </div>
     <div className="field">
       {" "}
@@ -31,6 +71,10 @@ function Form1() {
         placeholder="Type your answer here"
         // cols="65"
         rows="3"
+        onChange={(e)=>
+          {
+            setdescription(e.target.value);
+          }}
       ></textarea>
     </div>
     <div className="question">
@@ -40,39 +84,24 @@ function Form1() {
         <option selected hidden value="">
           --Select any one--
         </option>
-        <option
-          name="submit blog"
-          value="Instagram"
-        >
-          Department 1
-        </option>
-        <option
-          name="sponsership"
-          value="Facebook"
-        >
-          Department 2
-        </option>
-        <option name="brand_ambassador" value="LinkedIn">
-        Department 3
-        </option>
-        <option name="website" value="D2C">
-        Department 4
-        </option>
-        <option name="other" value="Word of Mouth">
-        Department 5
-        </option>
-        <option name="other" value="Website">
-        Department 6
-        </option>
-        <option name="other" value="Other">
-        Department 7
-        </option>
-      </select>
+      {/* {console.log(departmentarray)} */}
+      {/* {departmentarray.forEach(element => {
+        // console.log(element.name)
+        <option>element.name</option>
+      })} */}
+      <option name="department1" value="62372c5a7b08fefb1ee8e761"  onChange="this.form.submit">
+        Department1
+      </option>
+      <option name="department1" value="62372c7c7b08fefb1ee8e762" onChange="this.form.submit">
+        Department2
+      </option>
+              </select>
     </div>
     <div className="form-button" >
-      <button id="amb-button" type="submit" >
+      <button id="amb-button" type="submit" onClick={submitform}>
         {" "}
         Submit{" "}
+        
       </button>
       
     </div>

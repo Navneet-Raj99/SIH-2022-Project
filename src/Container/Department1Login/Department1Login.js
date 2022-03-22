@@ -9,6 +9,7 @@ function Department1Login() {
   const [userid, setuserid] = useState();
   const [password, setpassword] = useState();
   const [loggedin, setloggedin] = useState(false);
+  const [secondloggedin, setsecondloggedin] = useState(false);
 
   function checkCredentials(e) {
     console.log("hello");
@@ -27,6 +28,50 @@ function Department1Login() {
 
     // }
   }
+  
+  async function login(){
+    console.log("Login Function called for department");
+    const rawResponse = await fetch("http://192.168.200.192:5000/department/login", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({email: userid, password: password})
+    });
+
+    const content = await rawResponse.json();
+    const statusCode = rawResponse.status;
+
+
+    if(statusCode == 401){
+       alert("Wrong Credential");
+    }else{
+      var access_token = content["access_token"];
+      localStorage.setItem("AUTH_TOKEN_DEPARTMENT", access_token);
+      setsecondloggedin(true);
+    }
+
+  }
+  const token=localStorage.getItem("AUTH_TOKEN_DEPARTMENT");
+
+  let loggedinsecond=true;
+  if(token===null)
+  {
+    loggedinsecond=false;
+  }
+
+  if(loggedinsecond===true)
+  {
+    return <Navigate to="/memberpanel"/>
+  }
+  else if(loggedin===true)
+  {
+    return <Navigate to="/"/>
+    // educationMinister@gmail.com
+    // admin123
+  }
+
 
   // const token=localStorage.getItem("token");
 
@@ -51,6 +96,7 @@ function Department1Login() {
         {/* <div id="department_card_box">
         <DepartmentCard/>
         <DepartmentCard/>
+
         <DepartmentCard/>
         <DepartmentCard/>
         </div> */}
@@ -64,7 +110,7 @@ function Department1Login() {
             <div id="loginmain">
               <div id="logincompo1">
                 {" "}
-                <h2 id="h2comp1">Login For Dept-1</h2>{" "}
+                <h2 id="h2comp1">Login For Department</h2>{" "}
               </div>
               <br />
               <div id="logincompo2">
@@ -93,7 +139,7 @@ function Department1Login() {
               </div>
               <br />
               <div id="logincompo4">
-                <button id="loginbut" onClick={checkCredentials}>
+                <button id="loginbut" onClick={login}>
                   LOGIN
                 </button>
               </div>
